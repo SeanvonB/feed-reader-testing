@@ -31,6 +31,25 @@ $(function() {
         });
     });
 
+    // This suite tests menu show/hide functionality
+    describe("The menu", function() {
+        let body;
+        let menu;
+
+        beforeEach(function() {
+            let body = document.querySelector("body");
+            let menu = document.querySelector(".menu-icon-link");
+        });
+
+        it("defaults to hidden", function() {
+            expect(body.classList.contains("menu-hidden")).toBe(true);
+        });
+
+        it("toggles show/hide on click", function () {
+            menu.click();
+            expect(body.classList.contains("menu.hidden")).toBe(false);
+        });
+    });
 
     /* TODO: Write a new test suite named "The menu" */
 
