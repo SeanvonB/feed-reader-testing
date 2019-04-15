@@ -6,6 +6,7 @@ since some of these tests may require DOM elements. We want
 to ensure they don't run until the DOM is ready. */
 
 $(function() {
+
     // This suite tests definitions in allFeeds
     describe('RSS feeds', function() {
 
@@ -14,14 +15,12 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         it("have defined URLs", function() {
             for (let feed of allFeeds) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
             }
         });
-
 
         it("have defined names", function() {
             for (let feed of allFeeds) {
@@ -41,9 +40,9 @@ $(function() {
         });
 
         it("toggles show/hide on click", function () {
-            menu.click();
+            menu.click(); // Show menu
             expect(body.classList.contains("menu.hidden")).toBe(false);
-            menu.click();
+            menu.click(); // Hide menu; return page to default state
         });
     });
 
@@ -66,6 +65,7 @@ $(function() {
         let feed = document.querySelector(".feed");
         let entry;
 
+        // Load a feed and save its first article
         beforeEach(function(done) {
             loadFeed(0, function() {
                 entry = feed.children[0].innerText;
@@ -73,9 +73,12 @@ $(function() {
             });
         });
 
+        // Load the next feed, save its first article, then compare
         it("finish loading", function(done) {
             loadFeed(1, function() {
-                expect(feed.children[0].innerText === entry).toBe(false);
+                expect(
+                    feed.children[0].innerText === entry
+                ).toBe(false);
                 done();
             });
         });
