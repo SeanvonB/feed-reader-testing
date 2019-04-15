@@ -82,5 +82,10 @@ $(function() {
                 done();
             });
         });
+
+        // Load first feed again; return page to initial state
+        afterEach(function(done) {
+            loadFeed(0, done);
+        })
     });
 }());
