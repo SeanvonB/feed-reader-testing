@@ -43,6 +43,7 @@ $(function() {
         it("toggles show/hide on click", function () {
             menu.click();
             expect(body.classList.contains("menu.hidden")).toBe(false);
+            menu.click();
         });
     });
 
