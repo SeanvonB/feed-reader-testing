@@ -41,8 +41,9 @@ $(function() {
 
         it("toggles show/hide on click", function () {
             menu.click(); // Show menu
-            expect(body.classList.contains("menu.hidden")).toBe(false);
+            expect(body.classList.contains("menu-hidden")).toBe(false);
             menu.click(); // Hide menu; return page to default state
+            expect(body.classList.contains("menu-hidden")).toBe(true);
         });
     });
 
