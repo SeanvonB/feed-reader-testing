@@ -48,37 +48,40 @@ $(function() {
 
     // This suite tests loadFeed to ensure that entries load
     describe("Initial entries", function() {
-        let feed = document.querySelector(".feed");
-
-        // Credit to Matthew Cranford: https://matthewcranford.com
+        let entry;
+        
         beforeEach(function(done) {
-            loadFeed(0, done);
+            loadFeed(0, function() {
+                entry = document.querySelector(".feed .entry");
+                done();
+            });
         });
 
         it("finish loading", function() {
-            expect(feed.children.length > 0).toBe(true);
+            expect(entry).toBeDefined();
         });
     });
 
     // This suite tests content changes in new feeds
     describe("Feed changes", function() {
-        let feed = document.querySelector(".feed");
-        let entry;
+        let feedInitial;
+        let feedNew;
 
         // Load a feed and save its first article
         beforeEach(function(done) {
             loadFeed(0, function() {
-                entry = feed.children[0].innerText;
-                done();
+                feedInitial = document.querySelector(".feed").innerHTML;
+                loadFeed(1, function() {
+                    feedNew = document.querySelector(".feed").innerHTML;
+                    done();
+                });
             });
         });
 
         // Load the next feed, save its first article, then compare
         it("finish loading", function(done) {
             loadFeed(1, function() {
-                expect(
-                    feed.children[0].innerText === entry
-                ).toBe(false);
+                expect(feedInitial === feedNew).toBe(false);
                 done();
             });
         });
