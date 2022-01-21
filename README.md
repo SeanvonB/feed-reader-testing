@@ -1,7 +1,20 @@
-# Feed Reader Testing Suite
+# Jasmine Testing Suite
 
-This was my submission for a Jasmine project that was part of Udacity's Front-End Web Developer Nanodegree. The purpose of the project was to demonstrate an understanding of how to write tests using the Jasmine testing framework for a pre-made webpage; for instance, does the menu properly toggle its show/hide state when clicked, or does the content change between feeds as expected?
+[LIVE PREVIEW](https://seanvonb.github.io/jasmine-tests/)
 
-This spec file uses an IIFE to run when the page is first loaded and displays the results at the bottom of the page – nothing else is required, and tests will continue to check and re-check automatically throughout development.
+The purpose of this project was to practice writing Jasmine tests for a premade feed reader site. It was a good introduction to testing on the front end in real time. Unfortunately, years later, the project has aged: the original loader for the chart API isn't supported anymore, and I don't know whether using IIFEs is still the best practice for running functions after the DOM loads – but I'm proud to have reached this developer milestone of having outdated junk in my portfolio.
 
-To check it out, simply download the files, unzip them, and open <i>index.html</i> with your browser.
+## Features
+
+-   Display test results at the bottom of the page
+-   Update automatically during continuous development
+
+## Credits
+
+-   This project was part of my [Front End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011).
+-   Jasmine is owned by Pivotal Labs and Jasmine Maintainers.
+
+## License
+
+Copyright © 2019-2022 Sean von Bayern  
+Licensed under the [MIT License](LICENSE.md)
